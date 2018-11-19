@@ -25,6 +25,8 @@ public class World {
     public World(int n) {
         this.gridSize = n;
         initialiseGrid();
+
+
     }
 
     /**
