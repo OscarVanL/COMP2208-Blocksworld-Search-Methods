@@ -6,9 +6,9 @@ package World;
 public class Agent {
     private int x;
     private int y;
-    private World world;
+    private BlocksWorld world;
 
-    public Agent(int x, int y, World world) {
+    public Agent(int x, int y, BlocksWorld world) {
         this.x = x;
         this.y = y;
         this.world = world;
@@ -25,6 +25,19 @@ public class Agent {
 
     public int getY() {
         return this.y;
+    }
+
+    public boolean canMove(Direction direction) {
+        if (direction == Direction.Up) {
+            return canMoveUp();
+        } else if (direction == Direction.Down) {
+            return canMoveDown();
+        } else if (direction == Direction.Left) {
+            return canMoveLeft();
+        } else if (direction == Direction.Right) {
+            return canMoveRight();
+        }
+        return false;
     }
 
     public boolean canMoveUp() {

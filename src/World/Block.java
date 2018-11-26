@@ -13,11 +13,11 @@ public class Block {
     private type blockType;
     private Block isOntop;
     private Block isBelow;
-    private World world;
+    private BlocksWorld world;
     private int x;
     private int y;
 
-    public Block(type t, int x, int y, World world) {
+    public Block(type t, int x, int y, BlocksWorld world) {
         this.blockType = t;
         isOntop = null;
         isBelow = null;
@@ -45,6 +45,10 @@ public class Block {
 
     public void setBelow(Block block) {
         this.isBelow = block;
+    }
+
+    public type getType() {
+        return this.blockType;
     }
 
 }
