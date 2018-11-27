@@ -13,6 +13,7 @@ public class Node {
     private BlocksWorld worldState;
     private List<Node> children;
     private int depth;
+    private Direction directionMoved;
 
     /**
      * Used for instantiating first node in tree, since it won't have a parent.
@@ -22,22 +23,20 @@ public class Node {
         this.parent = null;
         this.worldState = state;
         this.depth = depth;
+        this.directionMoved = null;
         children = new ArrayList<Node>();
     }
 
-    public Node (Node parent, BlocksWorld state, int depth) {
+    private Node (Node parent, BlocksWorld state, int depth, Direction directionMoved) {
         this.parent = parent;
         this.worldState = state;
         this.depth = depth;
+        this.directionMoved = directionMoved;
         children = new ArrayList<Node>();
     }
 
     public boolean isFirstNode() {
-        if (parent == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return parent == null;
      }
 
      public BlocksWorld getState() {
@@ -52,7 +51,7 @@ public class Node {
             if (worldState.canMove(direction)) {
                 BlocksWorld newWorld = new BlocksWorld(worldState);
                 newWorld.moveAgent(direction);
-                children.add(new Node (this, newWorld, this.depth+1));
+                children.add(new Node (this, newWorld, this.depth+1, direction));
             }
         }
      }
@@ -61,22 +60,22 @@ public class Node {
         if (worldState.canMove(Direction.Up)) {
             BlocksWorld newWorld = new BlocksWorld(worldState);
             newWorld.moveAgent(Direction.Up);
-            children.add(new Node(this, newWorld, this.depth+1));
+            children.add(new Node(this, newWorld, this.depth+1, Direction.Up));
         }
         if (worldState.canMove(Direction.Down)) {
             BlocksWorld newWorld = new BlocksWorld(worldState);
             newWorld.moveAgent(Direction.Down);
-            children.add(new Node(this, newWorld, this.depth+1));
+            children.add(new Node(this, newWorld, this.depth+1, Direction.Down));
         }
         if (worldState.canMove(Direction.Left)) {
             BlocksWorld newWorld = new BlocksWorld(worldState);
             newWorld.moveAgent(Direction.Left);
-            children.add(new Node(this, newWorld, this.depth+1));
+            children.add(new Node(this, newWorld, this.depth+1, Direction.Left));
         }
         if (worldState.canMove(Direction.Right)) {
             BlocksWorld newWorld = new BlocksWorld(worldState);
             newWorld.moveAgent(Direction.Right);
-            children.add(new Node(this, newWorld, this.depth+1));
+            children.add(new Node(this, newWorld, this.depth+1, Direction.Right));
         }
      }
 
@@ -96,6 +95,23 @@ public class Node {
 
     public int getDepth() {
         return this.depth;
+    }
+
+    public Deque<Node> findNodeHistory() {
+        Deque<Node> nodeHistory = new ArrayDeque<Node>();
+        nodeHistory.add(this);
+        Node currentNode = this;
+        while (currentNode != null) {
+            currentNode = currentNode.parent;
+            if (currentNode != null && currentNode.directionMoved != null) {
+                nodeHistory.addFirst(currentNode);
+            }
+        }
+        return nodeHistory;
+    }
+
+    public Direction getDirection() {
+        return this.directionMoved;
     }
 
 }
