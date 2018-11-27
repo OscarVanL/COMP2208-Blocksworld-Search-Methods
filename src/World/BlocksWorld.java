@@ -3,6 +3,8 @@ package World;
 import java.util.ArrayList;
 import java.util.List;
 
+import static World.Block.*;
+
 /**
  * @author Oscar van Leusen
  */
@@ -67,11 +69,11 @@ public class BlocksWorld {
         if (gridSize<4)
             System.out.println("Grid size is too small.");
         grid = new Object[gridSize][gridSize];
-        blockA = new Block(Block.type.A, 0, 0, this);
+        blockA = new Block(type.A, 0, 0, this);
         grid[0][0] = blockA;
-        blockB = new Block(Block.type.B, 1, 0, this);
+        blockB = new Block(type.B, 1, 0, this);
         grid[1][0] = blockB;
-        blockC = new Block(Block.type.C, 2, 0, this);
+        blockC = new Block(type.C, 2, 0, this);
         grid[2][0] = blockC;
         agent = new Agent(3, 0, this);
         grid[3][0] = agent;
@@ -205,6 +207,32 @@ public class BlocksWorld {
             } else {
                 block.setOntopOf(null);
             }
+        }
+    }
+
+    public int xOf(type type) {
+        switch(type) {
+            case A:
+                return blockA.getX();
+            case B:
+                return blockB.getX();
+            case C:
+                return blockC.getX();
+            default:
+                return 0;
+        }
+    }
+
+    public int yOf(type type) {
+        switch(type) {
+            case A:
+                return blockA.getY();
+            case B:
+                return blockB.getY();
+            case C:
+                return blockC.getY();
+            default:
+                return 0;
         }
     }
 

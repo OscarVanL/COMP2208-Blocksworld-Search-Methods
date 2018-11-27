@@ -1,5 +1,6 @@
 import Search.BreadthFirst;
 import Search.DepthFirst;
+import Search.IterativeDeepening;
 import Search.Node;
 import World.BlocksWorld;
 
@@ -11,7 +12,7 @@ public class Main {
         BlocksWorld blocksWorld = new BlocksWorld(4);
 
         //Not yet implemented.
-        DepthFirst search1 = new DepthFirst(blocksWorld);
+        IterativeDeepening search1 = new IterativeDeepening(blocksWorld);
         search1.setDebugging(false);
         search1.run();
         System.out.println(search1.getTime());

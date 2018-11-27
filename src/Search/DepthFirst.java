@@ -3,7 +3,6 @@ package Search;
 import World.BlocksWorld;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class DepthFirst extends Search implements SearchInterface {
 
     @Override
     public Node run() {
-        fringe.add(new Node (this.startWorld));
+        fringe.add(new Node (this.startWorld, 0));
         //If fringe empties without finding the solution, then for some reason we can't find the solution with DepthFirst
         //(This shouldn't be a possibility anyway.)
         while (!fringe.isEmpty()) {
