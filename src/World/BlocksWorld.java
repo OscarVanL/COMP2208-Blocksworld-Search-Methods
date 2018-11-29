@@ -10,6 +10,196 @@ import static World.Block.*;
  */
 public class BlocksWorld {
 
+    public static final int goalxOfA = 1;
+    public static final int goalyOfA = 2;
+    public static final int goalxOfB = 1;
+    public static final int goalyOfB = 1;
+    public static final int goalxOfC = 1;
+    public static final int goalyOfC = 0;
+
+    //Below are a list of initialisations of BlocksWorld that give varying length depth solutions. For example
+
+    //Default, 14-Depth
+
+    public static final int initxOfA = 0;
+    public static final int inityOfA = 0;
+    public static final int initxOfB = 1;
+    public static final int inityOfB = 0;
+    public static final int initxOfC = 2;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 3;
+    public static final int inityOfAgent = 0;
+
+
+    //1-Depth: L
+    /*
+    public static final int initxOfA = 1;
+    public static final int inityOfA = 2;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 1;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 1;
+    public static final int inityOfAgent = 1;
+    */
+
+
+    //2-Depth: DL
+    /*
+    public static final int initxOfA = 1;
+    public static final int inityOfA = 1;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 1;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 1;
+    public static final int inityOfAgent = 2;
+    */
+
+    //3-Depth: DDL
+    /*
+    public static final int initxOfA = 1;
+    public static final int inityOfA = 1;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 1;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 1;
+    public static final int inityOfAgent = 3;
+    */
+
+
+    //4-Depth: DLDL
+    /*
+    public static final int initxOfA = 1;
+    public static final int inityOfA = 1;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 1;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 2;
+    public static final int inityOfAgent = 3;
+    */
+
+
+
+    //5-Depth: LLDDL
+    /*
+    public static final int initxOfA = 1;
+    public static final int inityOfA = 1;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 1;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 3;
+    public static final int inityOfAgent = 3;
+    */
+
+
+    //6-Depth: DLLURR
+    /*
+    public static final int initxOfA = 2;
+    public static final int inityOfA = 1;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 1;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 2;
+    public static final int inityOfAgent = 2;
+    */
+
+
+    //7-Depth: DDLLURR
+    /*
+    public static final int initxOfA = 2;
+    public static final int inityOfA = 1;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 1;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 2;
+    public static final int inityOfAgent = 3;
+    */
+
+
+    //8-Depth: DLDLLURR
+    /*
+    public static final int initxOfA = 2;
+    public static final int inityOfA = 1;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 1;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 3;
+    public static final int inityOfAgent = 3;
+    */
+
+
+    //9-Depth: DRDLLURDR
+    /*
+    public static final int initxOfA = 1;
+    public static final int inityOfA = 1;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 0;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 1;
+    public static final int inityOfAgent = 2;
+    */
+
+
+    //10-Depth: DRRDLLURDR
+    /*
+    public static final int initxOfA = 1;
+    public static final int inityOfA = 1;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 0;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 1;
+    public static final int inityOfAgent = 3;
+    */
+
+
+    //11-Depth: DDDLLUURDDR
+    /*
+    public static final int initxOfA = 1;
+    public static final int inityOfA = 1;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 0;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 2;
+    public static final int inityOfAgent = 3;
+    */
+
+    //12-Depth: DDDLLLUURDDR
+    /*
+    public static final int initxOfA = 1;
+    public static final int inityOfA = 1;
+    public static final int initxOfB = 0;
+    public static final int inityOfB = 0;
+    public static final int initxOfC = 1;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 3;
+    public static final int inityOfAgent = 3;
+    */
+
+
+    //13-Depth: LLDLURDRUULDL
+    /*
+    public static final int initxOfA = 0;
+    public static final int inityOfA = 0;
+    public static final int initxOfB = 1;
+    public static final int inityOfB = 0;
+    public static final int initxOfC = 2;
+    public static final int inityOfC = 0;
+    public static final int initxOfAgent = 3;
+    public static final int inityOfAgent = 1;
+    */
+
+
+
     private int gridSize;
     private Object[][] grid;
     private List<Block> blocks;
@@ -17,7 +207,6 @@ public class BlocksWorld {
     private Block blockB;
     private Block blockC;
     private Agent agent;
-
 
     public BlocksWorld(int n) {
         this.gridSize = n;
@@ -45,22 +234,6 @@ public class BlocksWorld {
         blocks.add(blockC);
     }
 
-
-    /**
-     * If we've got another BlocksWorld state we want to 'restore' to
-     * (Eg: If we go down a path on a search and this was incorrect, we may want to backtrack to how it was before.)
-     * @param w : World to restore to.
-     */
-    public void restoreBlocksWorld(BlocksWorld w) {
-        this.grid = w.grid;
-        this.blocks = w.blocks;
-        this.blockA = w.blockA;
-        this.blockB = w.blockB;
-        this.blockC = w.blockC;
-        this.agent = w.agent;
-    }
-
-
     /**
      * Initialises the grid to size n, as this is an Object array everything is initialised to null.
      * Then fills the Start states for blocks and the agent.
@@ -69,23 +242,24 @@ public class BlocksWorld {
         if (gridSize<4)
             System.out.println("Grid size is too small.");
         grid = new Object[gridSize][gridSize];
-        blockA = new Block(type.A, 0, 0, this);
-        grid[0][0] = blockA;
-        blockB = new Block(type.B, 1, 0, this);
-        grid[1][0] = blockB;
-        blockC = new Block(type.C, 2, 0, this);
-        grid[2][0] = blockC;
-        agent = new Agent(3, 0, this);
-        grid[3][0] = agent;
+        blockA = new Block(type.A, initxOfA, inityOfA, this);
+        grid[initxOfA][inityOfA] = blockA;
+        blockB = new Block(type.B, initxOfB, inityOfB, this);
+        grid[initxOfA][inityOfB] = blockB;
+        blockC = new Block(type.C, initxOfC, inityOfC, this);
+        grid[initxOfC][inityOfC] = blockC;
+        agent = new Agent(initxOfAgent, inityOfAgent, this);
+        grid[initxOfAgent][inityOfAgent] = agent;
         blocks = new ArrayList<>();
         blocks.add(blockA);
         blocks.add(blockB);
         blocks.add(blockC);
     }
 
-
     public boolean inGoalState() {
-        return (grid[1][2] == blockA && grid[1][1] == blockB && grid[1][0] == blockC);
+        return (grid[goalxOfA][goalyOfA] == blockA &&
+                grid[goalxOfB][goalyOfB] == blockB &&
+                grid[goalxOfC][goalyOfC] == blockC);
     }
 
     public void moveAgent(Direction d) {
@@ -233,6 +407,19 @@ public class BlocksWorld {
                 return blockC.getY();
             default:
                 return 0;
+        }
+    }
+
+    public Block getBlock(type type) {
+        switch(type) {
+            case A:
+                return blockA;
+            case B:
+                return blockB;
+            case C:
+                return blockC;
+            default:
+                return null;
         }
     }
 

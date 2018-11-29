@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author Oscar van Leusen
  */
-public class IterativeDeepening extends Search implements SearchInterface {
+public class IterativeDeepening extends Search {
     private Deque<Node> fringe;
 
     public IterativeDeepening(BlocksWorld world) {
@@ -24,11 +24,9 @@ public class IterativeDeepening extends Search implements SearchInterface {
         while (result == null) {
             fringe = new ArrayDeque<>();
             fringe.add(new Node (this.startWorld, 0));
-            System.out.println("Iterative deepening depth: " + depth);
             result = depthLimitedSearch(depth);
             depth++;
         }
-
         return result;
     }
 
@@ -36,17 +34,28 @@ public class IterativeDeepening extends Search implements SearchInterface {
         while (!fringe.isEmpty()) {
             Node expanding = fringe.removeFirst();
 
+            if (isDebugging()) {
+                printDebug(this, expanding);
+            }
+
+            newDepthCheck(expanding, this);
+
             if (expanding.isSolution()) {
                 return expanding;
             } else if (expanding.getDepth()+1 <= depth) {
                 incrementTime();
                 expanding.calculateChildren();
                 List<Node> successors = expanding.getChildren();
-                for (Node node : successors) {
-                    fringe.addFirst(node);
-                }
+                fringe.addAll(successors);
+            } else if (expanding.getDepth() > depth) {
+                return null;
             }
         }
         return null;
+    }
+
+    @Override
+    public int fringeSize() {
+        return fringe.size();
     }
 }

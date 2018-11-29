@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author Oscar van Leusen
  */
-public class DepthFirst extends Search implements SearchInterface {
+public class DepthFirst extends Search {
     private Deque<Node> fringe;
 
     public DepthFirst(BlocksWorld world) {
@@ -27,9 +27,10 @@ public class DepthFirst extends Search implements SearchInterface {
             Node expanding = fringe.removeFirst();
 
             if (isDebugging()) {
-                System.out.println("Fringe size: " + fringe.size());
-                printDebug(expanding);
+                printDebug(this, expanding);
             }
+
+            //newDepthCheck(expanding, this);
 
             if (expanding.isSolution()) {
                 return expanding;
@@ -45,5 +46,10 @@ public class DepthFirst extends Search implements SearchInterface {
         }
         //If no solution is found.
         return null;
+    }
+
+    @Override
+    public int fringeSize() {
+        return fringe.size();
     }
 }

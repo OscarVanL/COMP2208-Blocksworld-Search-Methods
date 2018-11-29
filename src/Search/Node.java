@@ -35,10 +35,6 @@ public class Node {
         children = new ArrayList<Node>();
     }
 
-    public boolean isFirstNode() {
-        return parent == null;
-     }
-
      public BlocksWorld getState() {
         return worldState;
      }
@@ -79,12 +75,6 @@ public class Node {
         }
      }
 
-    public static Direction randomDirection() {
-        Random random = new Random();
-        int rand = random.nextInt(Direction.class.getEnumConstants().length);
-        return Direction.class.getEnumConstants()[rand];
-    }
-
     public boolean isSolution() {
         return worldState.inGoalState();
     }
@@ -96,6 +86,7 @@ public class Node {
     public int getDepth() {
         return this.depth;
     }
+
 
     public Deque<Node> findNodeHistory() {
         Deque<Node> nodeHistory = new ArrayDeque<Node>();
@@ -110,8 +101,24 @@ public class Node {
         return nodeHistory;
     }
 
+    public void printSolutionToNode() {
+        for (Node node : this.findNodeHistory()) {
+            System.out.print(node.getDirection());
+        }
+        System.out.println();
+    }
+
     public Direction getDirection() {
         return this.directionMoved;
     }
 
+    public int numberOfParents() {
+        int parents = 0;
+        Node checkedNode = this;
+        while (checkedNode.parent != null) {
+            parents++;
+            checkedNode = checkedNode.parent;
+        }
+        return parents;
+    }
 }
